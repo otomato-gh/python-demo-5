@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: python-demo-5
+  annotations:
+    # informs where TechDocs source content is stored so that it can be read and docs can be generated from it. 
+    # Most commonly, it's written as a path, relative to the location of the catalog-info.yaml itself, where the associated mkdocs.yml file can be found.
+    # In unusual situations where the documentation for a catalog entity does not live alongside the entity's source code, the value of this annotation can point to an absolute URL, 
+    # matching the location reference string format outlined above, for example: url:https://github.com/backstage/backstage/tree/master
+    backstage.io/managed-by-location: url:https://github.com/otomato-gh/backstage/tree/test-run/examples/template/python-github-content/catalog-info.yaml
+    backstage.io/techdocs-ref: dir:. # TechDocs integration
+    github.com/project-slug: otomato-gh/python-demo-5 # GH Actions CI/CD Integration
+    github.com/user-login: otomato-gh
+    environemts: production/staging/development
+    runtime: orchestrator
+  links:
+    - url: https://google.com
+      title: Service test link
+      icon: dashboard
+spec:
+  type: service
+  owner: user:guest
+  lifecycle: experimental
+  dependsOn:
+    - resource:default/custom-rdb

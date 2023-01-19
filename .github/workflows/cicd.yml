@@ -1,0 +1,27 @@
+---
+name: 'Simple python CI'
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Lint
+        run: echo running some linter here
+  docker_build:
+    needs: [lint]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Lint
+        run: echo running some linter here
+  helm_deploy:
+    needs: [docker_build]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Deploy step
+        run: echo helm upgrade --install blah blah
