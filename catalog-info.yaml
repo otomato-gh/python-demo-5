@@ -13,6 +13,7 @@ metadata:
     github.com/user-login: otomato-gh
     environemts: production/staging/development
     runtime: orchestrator
+    backstage.io/artifactory-id: backster
   links:
     - url: https://google.com
       title: Service test link
